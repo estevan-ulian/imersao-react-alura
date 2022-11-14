@@ -5,16 +5,20 @@ import { motion } from 'framer-motion'
 import { PlaylistsProps, Video } from "../../@types/data"
 
 interface TimelineProps {
-    playlists: PlaylistsProps[]
+    playlists: PlaylistsProps[],
+    searchValue: string
 }
 
-function Timeline({ playlists }: TimelineProps) {
-    const playlistNames = Object.keys(playlists)
+function Timeline({ playlists, searchValue }: TimelineProps) {
+
+    let playlistNames = Object.keys(playlists);
+
+    if (playlistNames === null) return null;
 
     return (
         <>
-            {playlistNames.map((playlistName, index) => {
-
+            {playlistNames?.map((playlistName, index) => {
+                // @ts-ignore
                 const videos: Video[] = playlists[playlistName]
 
                 return (
@@ -24,36 +28,45 @@ function Timeline({ playlists }: TimelineProps) {
                         className={`w-full overflow-hidden p-4`}
                     >
 
-                        <h2 className={`font-bold text-xl mb-4 capitalize`}>{playlistName}</h2>
+                        <h2 className={`font-bold text-xl mb-4 uppercase`}>{playlistName}</h2>
 
                         <div
                             className={`w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4`}
                         >
 
-                            {videos.map((video: Video, index) => (
-                                <motion.div key={index}
-                                    initial={{ opacity: 0, scale: .5 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    whileHover={{ scale: 1.025 }}
-                                    transition={{ duration: .5 }}
-                                    viewport={{ once: true }}
-                                >
-                                    <Link href={video.url} className={`w-full h-full rounded-md overflow-clip bg-black`} target='_blank'>
+                            {videos.filter((video: Video) => {
 
-                                        <Image
-                                            src={video.thumb}
-                                            alt={video.title}
-                                            className={`aspect-video object-cover w-full h-auto`}
-                                            width={800}
-                                            height={450}
-                                            priority
-                                        />
+                                const titleNormalized = video.title.toLowerCase()
+                                const searchValueNormalized = searchValue.toLocaleLowerCase()
 
-                                        <span className={`py-2 block px-3 text-sm`}>{video.title}</span>
+                                return titleNormalized.includes(searchValueNormalized)
 
-                                    </Link>
-                                </motion.div>
-                            ))}
+                            }).map((video: Video, index) => {
+                                return (
+                                    <motion.div key={index}
+                                        initial={{ opacity: 0, scale: .5 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        whileHover={{ scale: 1.025 }}
+                                        transition={{ duration: .5 }}
+                                        viewport={{ once: true }}
+                                    >
+                                        <Link href={video.url} className={`w-full h-full overflow-clip bg-black`} target='_blank'>
+
+                                            <Image
+                                                src={video.thumb}
+                                                alt={video.title}
+                                                className={`aspect-video object-cover w-full h-auto rounded-t-md`}
+                                                width={800}
+                                                height={450}
+                                                priority
+                                            />
+
+                                            <span className={`py-2 block px-3 text-sm bg-gray-200 rounded-b-md`}>{video.title}</span>
+
+                                        </Link>
+                                    </motion.div>
+                                )
+                            })}
 
                         </div>
 

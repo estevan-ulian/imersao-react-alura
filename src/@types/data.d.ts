@@ -2,6 +2,7 @@ export interface ConfigProps {
     name: string,
     job: string,
     github: string,
+    favorites: Video[],
     playlists: PlaylistProps
 }
 

@@ -4,6 +4,23 @@ export const config: ConfigProps = {
     "name": "Estevan Ulian",
     "job": "Front-end Developer",
     "github": "estevan-ulian",
+    "favorites": [
+        {
+            "title": "Alura Cursos Online",
+            "thumb": "https://yt3.ggpht.com/xqhIoXspeX7eqouJvNHl1xqpv9213Pl26ENZbuouXxO2RlDadjsveNXfgnj8GTUk7thFYUkVRg=s176-c-k-c0x00ffffff-no-rj-mo",
+            "url": "https://www.youtube.com/c/Alura"
+        },
+        {
+            "title": "Mario Souto - Dev Soutinho",
+            "thumb": "https://yt3.ggpht.com/m8Yrqf0Y81L4mZ1Cq7rGnJ4NDHe6729rxiFZvWyy9-xd_Z7Osmza7J8NWpN1axMHcCb1oKJNgA=s88-c-k-c0x00ffffff-no-rj",
+            "url": "https://www.youtube.com/c/DevSoutinho"
+        },
+        {
+            "title": "Filipe Deschamps",
+            "thumb": "https://yt3.ggpht.com/ytc/AMLnZu9fwc9E-G17B2vMnbYzZBp_NYs4AmCE802y8x08=s88-c-k-c0x00ffffff-no-rj",
+            "url": "https://www.youtube.com/c/FilipeDeschamps"
+        }
+    ],
     "playlists": {
         "jogos": [
             {

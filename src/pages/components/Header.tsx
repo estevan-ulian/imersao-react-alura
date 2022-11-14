@@ -17,11 +17,11 @@ function Header({ config }: HeaderProps) {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: .5 }}
             viewport={{ once: true }}
-            className={`mt-12 flex items-center w-full px-4 py-8 gap-4`}
+            className={`mt-2 flex items-center w-full px-4 py-8 gap-4`}
         >
 
             <Image
-                src={`https://github.com/${config.github}.png`}
+                src={`https://github.com/${config?.github}.png`}
                 alt="Imagem de perfil"
                 width={80}
                 height={80}
@@ -30,9 +30,9 @@ function Header({ config }: HeaderProps) {
 
             <div>
 
-                <h2>{config.name}</h2>
+                <h2 className={`font-bold text-xl`}>{config?.name}</h2>
 
-                <p>{config.job}</p>
+                <p>{config?.job}</p>
 
             </div>
 
