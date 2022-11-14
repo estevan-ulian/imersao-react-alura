@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['github.com', 'img.youtube.com', 'source.unsplash.com', 'yt3.ggpht.com', 'www.youtube.com']
+    domains: ['github.com', 'img.youtube.com', 'images.unsplash.com', 'yt3.ggpht.com', 'www.youtube.com']
   }
 }
 
