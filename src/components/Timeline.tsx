@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from 'framer-motion'
 
-import { PlaylistsProps, Video } from "../../@types/data"
+import { PlaylistsProps, Video } from "../@types/data"
 
 interface TimelineProps {
     playlists: PlaylistsProps[],
@@ -11,9 +11,7 @@ interface TimelineProps {
 
 function Timeline({ playlists, searchValue }: TimelineProps) {
 
-    let playlistNames = Object.keys(playlists);
-
-    if (playlistNames === null) return null;
+    const playlistNames = Object.keys(playlists)
 
     return (
         <>
@@ -28,7 +26,7 @@ function Timeline({ playlists, searchValue }: TimelineProps) {
                         className={`w-full overflow-hidden p-4`}
                     >
 
-                        <h2 className={`font-bold text-xl mb-4 uppercase`}>{playlistName}</h2>
+                        <h2 className={`font-bold text-xl mb-4 uppercase dark:text-neutral-100`}>{playlistName}</h2>
 
                         <div
                             className={`w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4`}
@@ -49,8 +47,9 @@ function Timeline({ playlists, searchValue }: TimelineProps) {
                                         whileHover={{ scale: 1.025 }}
                                         transition={{ duration: .5 }}
                                         viewport={{ once: true }}
+                                        className={`bg-neutral-200 dark:bg-neutral-700 rounded-b-md`}
                                     >
-                                        <Link href={video.url} className={`w-full h-full overflow-clip bg-black`} target='_blank'>
+                                        <Link href={video.url} className={`w-full h-full overflow-clip`} target='_blank'>
 
                                             <Image
                                                 src={video.thumb}
@@ -61,7 +60,7 @@ function Timeline({ playlists, searchValue }: TimelineProps) {
                                                 priority
                                             />
 
-                                            <span className={`py-2 block px-3 text-sm bg-gray-200 rounded-b-md`}>{video.title}</span>
+                                            <span className={`py-2 block px-3 text-sm dark:text-neutral-100`}>{video.title}</span>
 
                                         </Link>
                                     </motion.div>

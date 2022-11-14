@@ -30,9 +30,9 @@ function Header({ config }: HeaderProps) {
 
             <div>
 
-                <h2 className={`font-bold text-xl`}>{config?.name}</h2>
+                <h2 className={`font-bold text-xl dark:text-neutral-100`}>{config?.name}</h2>
 
-                <p>{config?.job}</p>
+                <p className={`dark:text-neutral-200`}>{config?.job}</p>
 
             </div>
 

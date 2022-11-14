@@ -1,8 +1,8 @@
-import { Dispatch } from "react"
+import { Dispatch, SetStateAction } from "react"
 
 interface SearchProps {
     searchValue: string,
-    setSearchValue: (str: string) => void
+    setSearchValue: Dispatch<SetStateAction<string>>
 }
 
 function Search({ searchValue, setSearchValue }: SearchProps) {
