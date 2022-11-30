@@ -7,7 +7,7 @@ export const config: ConfigProps = {
     "favorites": [
         {
             "title": "Alura Cursos Online",
-            "thumb": "https://yt3.ggpht.com/xqhIoXspeX7eqouJvNHl1xqpv9213Pl26ENZbuouXxO2RlDadjsveNXfgnj8GTUk7thFYUkVRg=s176-c-k-c0x00ffffff-no-rj-mo",
+            "thumb": "https://yt3.ggpht.com/Fqr4oo0VR4l5KB2E7frxX00reaPw3oBX5csxGmijKx5UTDPY4xLPW0eYTnzh5TvkqNV35g-HHQ=s88-c-k-c0x00ffffff-no-rj",
             "url": "https://www.youtube.com/c/Alura"
         },
         {
