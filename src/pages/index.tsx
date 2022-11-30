@@ -15,7 +15,7 @@ export default function Home() {
   const [dark, setDark] = useState<boolean>(false);
 
   return (
-    <div className={`flex flex-col flex-1 ${dark ? 'dark' : ''}`}>
+    <div className={`flex flex-col flex-1 w-full mx-auto ${dark ? 'dark' : ''}`}>
       <Head>
         <title>AluraTube - Estevan</title>
       </Head>
@@ -28,14 +28,14 @@ export default function Home() {
 
       <Banner />
 
-      <div className={`max-w-screen-xl mx-auto dark:bg-neutral-900`}>
+      <div className={`dark:bg-neutral-900`}>
+        <div className={`max-w-screen-xl mx-auto`}>
+          <Header config={config} />
 
-        <Header config={config} />
+          <Timeline searchValue={searchValue} playlists={config.playlists} />
 
-        <Timeline searchValue={searchValue} playlists={config.playlists} />
-
-        <Favorites favorites={config.favorites} />
-
+          <Favorites favorites={config.favorites} />
+        </div>
       </div>
 
     </div>

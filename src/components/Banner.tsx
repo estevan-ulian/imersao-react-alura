@@ -16,7 +16,7 @@ function Banner() {
                 width={1440}
                 height={160}
                 alt=''
-                className='object-cover object-center'
+                className='object-cover object-center w-full'
             />
         </motion.div>
     )
